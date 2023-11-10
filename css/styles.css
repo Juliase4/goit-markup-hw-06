@@ -4,13 +4,13 @@
   --dark-color: #2e2f42;
   --subtle-text-color: #8e8f99;
   --light-color: #f4f4fd;
-  --wight-color: #ffffff;
+  --white-color: #ffffff;
 }
 
 body {
   font-family: "Roboto", sans-serif;
   color: #434455;
-  background-color: var(--wight-color);
+  background-color: var(--white-color);
 }
 
 /* --- Утіліти --- */
@@ -38,8 +38,8 @@ body {
 }
 
 .section {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 96px;
+  padding-bottom: 96px;
 }
 
 h1,
@@ -81,12 +81,12 @@ button {
   cursor: pointer;
 }
 
-/* ===== HEADER MOBILE ===== */
+
 .container {
   padding: 0 15px;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 320px) {
   .container {
     width: 318px;
     margin-left: auto;
@@ -95,7 +95,10 @@ button {
 }
 
 .page-header {
-  padding: 16px 0;
+  border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 2px 1px 0px rgba(46, 47, 66, 0.08);
 }
 
 .logo {
@@ -104,7 +107,6 @@ button {
   line-height: 1.17;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  /* margin-right: 76px; */
   color: var(--primary-brand-color);
 }
 
@@ -112,11 +114,12 @@ button {
   color: var(--dark-color);
 }
 
+/* ===== HEADER MOBILE ===== */
 .mobile-open-btn {
   border: none;
   background-color: transparent;
   line-height: 0;
-  padding: 0;
+  padding: 16px 0;
 }
 
 .mobile-open-btn-icon {
@@ -132,6 +135,17 @@ button {
   height: 100%;
   z-index: 999999999;
   background-color: #ffffff;
+  transform: translateX(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.mobile-menu.is-open {
+  transform: translateX(0%);
+}
+
+.mobile-menu-cotainer {
+  position: relative;
+  padding: 72px 24px 40px 16px;
 }
 
 .mobile-menu-btn-close {
@@ -155,12 +169,63 @@ button {
   fill: #2E2F42;
 }
 
+.mobile-menu-item:not(:last-child) {
+  margin-bottom: 40px;
+}
+
 .mobile-menu-link {
+  position: relative;
   font-size: 36px;
   font-weight: 700;
   line-height: 1.11;
   letter-spacing: 0.02em;
   text-transform: capitalize;
+
+  color: var(--dark-color);
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:focus {
+  color: var(--pressed-state-color);
+}
+
+.mobile-menu-link-contacts {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+
+  color: #434455;
+}
+
+.mobile-menu-link-contacts:hover,
+.mobile-menu-link-contacts:focus {
+  color: var(--pressed-state-color);
+}
+
+.mobile-menu-soc-list {
+  display: flex;
+  /* justify-content: center; */
+  column-gap: 40px;
+}
+
+.mobile-menu-soc-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-brand-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--light-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-soc-link:hover,
+.mobile-menu-soc-link:focus {
+  background-color: var(--pressed-state-color);
 }
 
 /* === /Mobile menu === */
@@ -179,12 +244,246 @@ button {
   display: none;
 }
 
-/* ===== HEADER TABLET ===== */
+/* ===== /HEADER MOBILE ===== */
+
+/* ===== HERO MOBILE ===== */
+.hero {
+  max-width: 320px;
+  height: 432px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 72px;
+  padding-bottom: 72px;
+  text-align: center;
+  background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)),
+    url(../images/bg/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (min-resolution: 192dpi),
+screen and (min-resolution: 2dppx),
+screen and (min-device-pixel-ratio: 2) {
+  .hero {
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)),
+      url(../images/bg/bg-mobile@2x.jpg);
+  }
+}
+
+.hero-title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  max-width: 156px;
+  /* під питанням */
+  margin-bottom: 72px;
+  margin-left: auto;
+  margin-right: auto;
+
+  color: var(--white-color);
+}
+
+.hero-button {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+
+  display: block;
+  min-width: 169px;
+  height: 56px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 4px;
+  margin: 0 auto;
+
+  color: var(--white-color);
+  background-color: var(--primary-brand-color);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== /HERO MOBILE ===== */
+
+/* ===== OUR ADVANTAGES MOBILE===== */
+.advantages-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 72px;
+}
+
+.advantages-group {
+  display: none;
+}
+
+.advantages-subtitle {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin-bottom: 8px;
+
+  color: var(--dark-color);
+}
+
+.advantages-text {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ===== /OUR ADVANTAGES MOBILE===== */
+
+/* ===== TEAM MOBILE===== */
+.team {
+  background-color: var(--light-color);
+}
+
+.team-title {
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 72px;
+}
+
+.team-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 72px;
+}
+
+.description-team {
+  text-align: center;
+  padding: 32px 0;
+}
+
+.team-item {
+  max-width: 264px;
+  border-radius: 0px 0px 4px 4px;
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+  background-color: var(--white-color);
+}
+
+.team-name {
+  margin-bottom: 8px;
+}
+
+.team-text {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+.team-soc-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.team-soc-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-brand-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--light-color);
+}
+
+
+/* ===== /TEAM MOBILE===== */
+
+/* ===== PORTFOLIO MOBILE===== */
+.portfolio-title {
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 72px;
+}
+
+.portfolio-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px;
+}
+
+.portfolio-item {
+  display: block;
+  background-color: var(--white-color);
+  border: 1px solid #F4F4FD;
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-overley-description {
+  display: none;
+}
+
+.portfolio-description {
+  border-right: 1px solid #e7e9fc;
+  border-left: 1px solid #e7e9fc;
+  border-bottom: 1px solid #e7e9fc;
+  padding: 32px 16px;
+}
+
+.portfolio-subtitle {
+  margin-bottom: 8px;
+}
+
+.portfolio-text {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+/* ===== /PORTFOLIO MOBILE===== */
+
+/* ===== FOOTER MOBILE===== */
+.page-footer {
+  padding: 96px 0;
+  background-color: var(--dark-color);
+}
+
+.page-footer .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 16px;
+  margin-right: 0;
+
+  color: var(--primary-brand-color);
+}
+
+.bitf-logo {
+  color: var(--light-color);
+}
+
+/* ===== /FOOTER MOBILE===== */
+
+/* ===== FOOTER TABLET===== */
+/* ===== /FOOTER TABLET===== */
+
+
+
+
+/* --------- TABLET --------- */
 @media screen and (min-width: 768px) {
   .container {
     width: 766px;
   }
 
+  /* ===== HEADER TABLET ===== */
   .mobile-open-btn {
     display: none;
   }
@@ -192,6 +491,14 @@ button {
   .navigation {
     display: flex;
     align-items: center;
+  }
+
+  .logo {
+    margin-right: 120px;
+  }
+
+  .menu-link {
+    padding: 24px 0;
   }
 
   .navigation-list {
@@ -228,8 +535,121 @@ button {
     background: var(--pressed-state-color);
   }
 
+  .contacts {
+    display: flex;
+  }
+
   .contacts-list {
     display: flex;
+    flex-direction: column;
+    font-style: normal;
+    row-gap: 12px;
+  }
+
+  .contacts-link {
+    font-family: inherit;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .contacts-link:hover,
+  .contacts-link:focus {
+    color: var(--pressed-state-color);
+  }
+
+  /* ===== /HEADER TABLET ===== */
+
+  /* ===== HERO TABLET ===== */
+  .hero {
+    max-width: 768px;
+    height: 436px;
+    padding-top: 112px;
+    padding-bottom: 112px;
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)),
+      url(../images/bg/bg-tablet.jpg);
+  }
+
+  @media screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx),
+  screen and (min-device-pixel-ratio: 2) {
+    .hero {
+      background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)),
+        url(../images/bg/bg-tablet@2x.jpg);
+    }
+
+    .hero-title {
+      font-size: 56px;
+      line-height: 1.07;
+      letter-spacing: 0.02em;
+      margin-bottom: 36px;
+      max-width: 496px;
+    }
+  }
+
+  /* ===== /HERO TABLET ===== */
+
+  /* ===== OUR ADVANTAGES TABLET===== */
+  .advantages-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 24px;
+  }
+
+  .advantages-item {
+    width: calc((100% - 24px) / 2);
+  }
+
+  .advantages-subtitle {
+    text-align: start;
+  }
+
+  /* ===== /OUR ADVANTAGES TABLET===== */
+  /* ===== TEAM TABLET===== */
+  .team-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 24px;
+  }
+
+  /* ===== /TEAM TABLET===== */
+
+  /* ===== PORTFOLIO TABLET===== */
+  .portfolio-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 72px;
+    column-gap: 24px;
+  }
+
+  .portfolio-item {
+    width: calc((100% - 24px) / 2);
+  }
+
+  /* ===== /PORTFOLIO TABLET===== */
+}
+
+/* --------- DESCTOP --------- */
+@media screen and (min-width: 1158px) {
+  .container {
+    width: 1158px;
+  }
+
+  .section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  /* ===== HEADER DESCTOP ===== */
+  .logo {
+    margin-right: 76px;
+  }
+
+  .contacts-list {
+    flex-direction: row;
     font-style: normal;
     column-gap: 40px;
   }
@@ -247,18 +667,148 @@ button {
     color: var(--pressed-state-color);
   }
 
-  .menu-link {
-    padding: 24px 0;
-  }
-}
+  /* ===== /HEADER DESCTOP ===== */
 
-/* ===== HEADER DESCTOP ===== */
-@media screen and (min-width: 1158px) {
-  .container {
-    width: 1158px;
+  /* ===== HERO DESCTOP ===== */
+  .hero {
+    max-width: 1440px;
+    height: 600px;
+    padding-top: 188px;
+    padding-bottom: 188px;
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)),
+      url(../images/bg/bg-desctop.jpg);
   }
-}
 
-/* ===== HERO MOBILE ===== */
-/* ===== HERO TABLET ===== */
-/* ===== HERO DESCTOP ===== */
+  @media screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx),
+  screen and (min-device-pixel-ratio: 2) {
+    .hero {
+      background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)),
+        url(../images/bg/bg-desctop@2x.jpg);
+    }
+
+    .hero-title {
+      margin-bottom: 48px;
+    }
+
+    .hero-button {
+      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero-button:hover,
+    .hero-button:focus {
+      background-color: var(--pressed-state-color);
+    }
+  }
+
+  /* ===== /HERO DESCTOP ===== */
+  /* ===== OUR ADVANTAGES DESCTOP===== */
+  .advantages-list {
+    gap: 24px;
+  }
+
+  .advantages-item {
+    width: calc((100% - 72px) / 4);
+  }
+
+  .advantages-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 264px;
+    height: 112px;
+    padding: 24px 100px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--subtle-text-color);
+    background-color: var(--light-color);
+  }
+
+  .advantages-subtitle {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .advantages-text {
+    font-weight: 400;
+  }
+
+  /* ===== /OUR ADVANTAGES DESCTOP===== */
+  /* ===== TEAM DESCTOP===== */
+  .team-soc-link {
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .team-soc-link:hover,
+  .team-soc-link:focus {
+    background-color: var(--pressed-state-color);
+  }
+
+  /* ===== /TEAM DESCTOP===== */
+  /* ===== PORTFOLIO DESCTOP===== */
+
+  .portfolio-list {
+    row-gap: 48px;
+    column-gap: 24px;
+  }
+
+  .portfolio-item {
+    cursor: pointer;
+    box-shadow: none;
+    width: calc((100% - 48px) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .portfolio-item:hover,
+  .portfolio-item:focus {
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+      0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+  }
+
+  .portfolio-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portfolio-overley-description {
+    display: flex;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    padding: 40px 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--light-color);
+    background-color: var(--primary-brand-color);
+
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .portfolio-item:hover .portfolio-overley-description,
+  .portfolio-item:focus .portfolio-overley-description {
+    transform: translateY(0%);
+  }
+
+  .portfolio-description {
+    border-right: 1px solid #e7e9fc;
+    border-left: 1px solid #e7e9fc;
+    border-bottom: 1px solid #e7e9fc;
+    padding: 32px 16px;
+  }
+
+  /* ===== /PORTFOLIO DESCTOP===== */
+
+  /* ===== FOOTER DESCTOP===== */
+  .page-footer {
+    padding: 100px 0;
+  }
+
+  /* ===== /FOOTER DESCTOP===== */
+}
