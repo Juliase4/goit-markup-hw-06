@@ -744,10 +744,14 @@ screen and (min-device-pixel-ratio: 2) {
 }
 
 .agreement {
+  display: inline-block;
+  vertical-align: middle;
   margin-bottom: 24px;
 }
 
 .modal-check-privacy {
+  display: flex;
+  align-items: center;
   font-family: inherit;
   font-size: 12px;
   line-height: 1.17;
@@ -760,6 +764,7 @@ screen and (min-device-pixel-ratio: 2) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 16px;
   height: 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
@@ -776,6 +781,11 @@ screen and (min-device-pixel-ratio: 2) {
   background-color: var(--pressed-state-color);
   fill: var(--light-color);
   border: none;
+}
+
+.agreement-text {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .modal-agreement-link {
@@ -815,6 +825,10 @@ screen and (min-device-pixel-ratio: 2) {
 @media screen and (min-width: 768px) {
   .container {
     width: 766px;
+  }
+
+  .mobile-menu {
+    display: none;
   }
 
   /* ===== HEADER TABLET ===== */
